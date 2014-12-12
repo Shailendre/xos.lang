@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Author:Shailendra Singh <goforsunny1993@gmail.com>
+ 	   :Sukant Priyadarshi <sukant1994@gmail.com>
+-->
+
+<language id="xos" _name="XOS" version="2.0" _section="Others">
+ <metadata>
+	 <property name="mimetypes">text/x-xos</property>
+	 <property name="globs">*.spl;*.apl;</property>
+	 <property name="line-comment-start">//</property>
+ </metadata>
+ <styles>
+	 <style id="comment" 	_name="Comment" 			map-to="def:comment"/>
+	 <style id="decimal" 	_name="Decimal number" 		map-to="def:decimal"/>
+	 <style id="string" 	_name="String" 				map-to="def:string"/>
+	 <style id="keyword" 	_name="Keyword" 			map-to="def:keyword"/>
+	 <style id="type" 		_name="Data Type" 			map-to="def:type"/>
+	 <style id="common-defines" _name="Common Defines" 	map-to="def:special-constant"/>
+	 <style id="function"	_name="Function"			map-to="def:function"/>
+ </styles>
+
+ <definitions>
+ <!-- for comments -->
+	 <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+		 <start>//</start>
+		 <include>
+		 	<context ref="def:in-line-comment"/>
+		 </include>
+	 </context>
+
+ <!-- for strings -->
+
+	 <context id="string" style-ref="string">
+		 <start>"</start>
+		 <end>"</end>
+	 </context>
+
+ <!-- for integers -->
+	 <context id="decimal" style-ref="decimal">
+		 <match extended="true">
+		 (?&lt;![\w\.])
+		 [0-9]+[uUlL]*
+		 (?![\w\.])
+		 </match>
+	 </context>
+
+ <!-- for data types -->
+	 <context id="type" style-ref="type">
+		 <keyword>integer</keyword>
+		 <keyword>string</keyword>
+	 </context>
+
+ <!-- Keywords -->
+	 <context id="keyword" style-ref="keyword">
+		 <keyword>alias</keyword>
+		 <keyword>else</keyword>
+		 <keyword>if</keyword>
+		 <keyword>while</keyword>
+		 <keyword>define</keyword>
+		 <keyword>endif</keyword>
+		 <keyword>ireturn</keyword>
+		 <keyword>break</keyword>
+		 <keyword>continue</keyword>
+		 <keyword>do</keyword>
+		 <keyword>endwhile</keyword>
+		 <keyword>then</keyword>
+		 <keyword>read</keyword>
+		 <keyword>breakpoint</keyword>
+		 <keyword>halt</keyword>
+		 <keyword>inline</keyword>
+		 <keyword>decl</keyword>
+		 <keyword>enddecl</keyword>
+		 <keyword>return</keyword>
+	 </context>
+
+ <!-- for special constants -->
+	 <context id="common-defines" style-ref="common-defines" class="common-defines">
+		 <keyword>SCRATCHPAD</keyword>
+		 <keyword>PAGE_TABLE</keyword>
+		 <keyword>MEM_LIST</keyword>
+		 <keyword>FILE_TABLE</keyword>
+		 <keyword>READY_LIST</keyword>
+		 <keyword>FAT</keyword>
+		 <keyword>DISK_LIST</keyword>
+		 <keyword>EX_HANDLER</keyword>
+		 <keyword>T_INTERRUPT</keyword>
+		 <keyword>INTERRUPT</keyword>
+		 <keyword>USER_PROG</keyword>
+		 <keyword>R0</keyword>
+		 <keyword>R1</keyword>
+		 <keyword>R2</keyword>
+		 <keyword>R3</keyword>
+		 <keyword>R4</keyword>
+		 <keyword>R5</keyword>
+		 <keyword>R6</keyword>
+		 <keyword>R7</keyword>
+		 <keyword>S0</keyword>
+		 <keyword>S1</keyword>
+		 <keyword>S2</keyword>
+		 <keyword>S3</keyword>
+		 <keyword>S4</keyword>
+		 <keyword>S5</keyword>
+		 <keyword>S6</keyword>
+		 <keyword>S7</keyword>
+		 <keyword>S8</keyword>
+		 <keyword>S9</keyword>
+		 <keyword>S10</keyword>
+		 <keyword>S11</keyword>
+		 <keyword>S12</keyword>
+		 <keyword>S13</keyword>
+		 <keyword>S14</keyword>
+		 <keyword>SP</keyword>
+		 <keyword>BP</keyword>
+		 <keyword>IP</keyword>
+		 <keyword>PTBR</keyword>
+		 <keyword>PTLR</keyword>
+		 <keyword>EFR</keyword>
+		</context>
+
+<!-- for predefined functions and system call -->
+	<context id="function" style-ref="function">
+		<keyword>print</keyword>
+		<keyword>store</keyword>
+		<keyword>load</keyword>
+		<keyword>main</keyword>
+		<keyword>Create</keyword>
+		<keyword>Open</keyword>
+		<keyword>Close</keyword>
+		<keyword>Delete</keyword>
+		<keyword>Write</keyword>
+		<keyword>Seek</keyword>
+		<keyword>Read</keyword>
+		<keyword>Fork</keyword>
+		<keyword>Exec</keyword>
+		<keyword>Exit</keyword>
+		<keyword>Getpid</keyword>
+		<keyword>Getppid</keyword>
+		<keyword>Wait</keyword>
+		<keyword>Signal</keyword>
+	</context>
+
+ <!-- main context -->
+	 <context id="xos" class="no-spell-check">
+		 <include>
+			 <context ref="comment"/>
+			 <context ref="decimal"/>
+			 <context ref="string"/>
+			 <context ref="keyword"/>
+			 <context ref="type"/>
+			 <context ref="common-defines"/>
+			 <context ref="function"/>
+		 </include>
+	 </context>
+	</definitions>
+ </language>
