@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- Author:Shailendra Singh <goforsunny1993@gmail.com>
-
+ Author:Shailendra Singh <shailendra_b120588cs@nitc.ac.in>
 -->
 
 <language id="xos" _name="XOS" version="2.0" _section="Others">
@@ -11,13 +10,13 @@
 	 <property name="line-comment-start">//</property>
  </metadata>
  <styles>
-	 <style id="comment" 	_name="Comment" 			map-to="def:comment"/>
-	 <style id="decimal" 	_name="Decimal number" 		map-to="def:decimal"/>
-	 <style id="string" 	_name="String" 				map-to="def:string"/>
-	 <style id="keyword" 	_name="Keyword" 			map-to="def:keyword"/>
+	 <style id="comment" 		_name="Comment" 			map-to="def:comment"/>
+	 <style id="decimal" 		_name="Decimal number" 			map-to="def:decimal"/>
+	 <style id="string" 		_name="String" 				map-to="def:string"/>
+	 <style id="keyword" 		_name="Keyword" 			map-to="def:keyword"/>
 	 <style id="type" 		_name="Data Type" 			map-to="def:type"/>
-	 <style id="common-defines" _name="Common Defines" 	map-to="def:special-constant"/>
-	 <style id="function"	_name="Function"			map-to="def:function"/>
+	 <style id="common-defines" 	_name="Common Defines" 			map-to="def:special-constant"/>
+	 <style id="function"		_name="Function"			map-to="def:function"/>
  </styles>
 
  <definitions>
@@ -30,7 +29,6 @@
 	 </context>
 
  <!-- for strings -->
-
 	 <context id="string" style-ref="string">
 		 <start>"</start>
 		 <end>"</end>
